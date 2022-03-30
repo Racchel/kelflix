@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 const apiMovies = axios.create({
-  baseURL: 'https://api.themoviedb.org/3/movie/popular?api_key=2cd78b2f3233105703d15159229667a8'
+  baseURL: `https://api.themoviedb.org/3/movie/popular?api_key=2cd78b2f3233105703d15159229667a8`
 })
 
 export default class Movies extends Component {
