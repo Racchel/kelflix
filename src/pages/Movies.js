@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 
-const apiMovies = axios.create({
-  baseURL: `https://api.themoviedb.org/3/movie/popular?api_key=2cd78b2f3233105703d15159229667a8`
-})
+import { api } from '../shared/services'
 
 export default class Movies extends Component {
 
@@ -18,16 +15,7 @@ export default class Movies extends Component {
   }
 
   getMovies = async () => {
-    const response = await apiMovies.get()
-
-    const movies = response.data.results.map(
-      (item) => {
-        return {
-          ...item,
-          poster_path: `https://image.tmdb.org/t/p/w500/${item.poster_path}`
-        }
-      }
-    )
+    const movies = await api.getMovies()
 
     this.setState({
       listMovies: movies,
