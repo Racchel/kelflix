@@ -30,7 +30,8 @@ export default class Movies extends Component {
     )
 
     this.setState({
-      listMovies: movies
+      listMovies: movies,
+      movieFiltered: movies
     })
   }
 
@@ -68,24 +69,13 @@ export default class Movies extends Component {
               ? // filme não encontrado
               <p>Filme não encontrado!</p>
 
-              : // filme filtrado?
-              this.state.movieFiltered.length > 0
-
-                ? // filme filtrado encontrado
-                this.state.movieFiltered.map((item, index) => (
-                  <li key={index}>
-                    <img src={item.poster_path} alt={item.title} />
-                    {item.title}
-                  </li>
-                ))
-
-                : // não há filtros
-                this.state.listMovies.map((item, index) => (
-                  <li key={index}>
-                    <img src={item.poster_path} alt={item.title} />
-                    {item.title}
-                  </li>
-                ))
+              : // filmes filtrados
+              this.state.movieFiltered.map((item, index) => (
+                <li key={index}>
+                  <img src={item.poster_path} alt={item.title} />
+                  {item.title}
+                </li>
+              ))
           }
         </ul>
       </>
