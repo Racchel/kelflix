@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+/** layout */
+import { ResourcesLayout } from '../shared/layout'
+
 /** services */
 import { api } from '../shared/services'
 
@@ -45,26 +48,12 @@ export default class Movies extends Component {
   render() {
     return (
       <>
-        <h1>Movies</h1>
-
-        <input type='text' placeholder='Digite um filme' onChange={this.handleChange} />
-
-        <ul>
-          {
-            this.state.notFound
-
-              ? // filme não encontrado
-              <p>Filme não encontrado!</p>
-
-              : // filmes filtrados
-              this.state.movieFiltered.map((item, index) => (
-                <li key={index}>
-                  <img src={item.poster_path} alt={item.title} />
-                  {item.title}
-                </li>
-              ))
-          }
-        </ul>
+        <ResourcesLayout
+          title='Filmes'
+          notFound={this.state.notFound}
+          handleChange={this.handleChange}
+          list={this.state.movieFiltered}
+        />
       </>
     )
   }
