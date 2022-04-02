@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 
+/** services */
 import { api } from '../shared/services'
+
+/** utils */
+import { filterResource } from '../shared/utils'
+
 
 export default class Movies extends Component {
 
@@ -26,21 +31,15 @@ export default class Movies extends Component {
   handleChange = (e) => {
     let { listMovies } = this.state
 
-    const movieFiltered = listMovies.filter((item) => {
-      return item.title.toLowerCase().includes(e.target.value.toLowerCase())
+    const { notFound, resourceFiltered } = filterResource({
+      list: listMovies,
+      value: e.target.value
     })
 
-    movieFiltered.length > 0
-
-      ? this.setState({
-        movieFiltered: movieFiltered,
-        notFound: false
-      })
-
-      : this.setState({
-        notFound: true
-      })
-
+    this.setState({
+      movieFiltered: resourceFiltered,
+      notFound: notFound
+    })
   }
 
   render() {
