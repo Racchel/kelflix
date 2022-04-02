@@ -14,7 +14,7 @@ export default class Movies extends Component {
 
   state = {
     listMovies: [],
-    movieFiltered: [],
+    moviesFiltered: [],
     notFound: false
   }
 
@@ -27,7 +27,7 @@ export default class Movies extends Component {
 
     this.setState({
       listMovies: movies,
-      movieFiltered: movies
+      moviesFiltered: movies
     })
   }
 
@@ -40,7 +40,7 @@ export default class Movies extends Component {
     })
 
     this.setState({
-      movieFiltered: resourceFiltered,
+      moviesFiltered: resourceFiltered,
       notFound: notFound
     })
   }
@@ -52,7 +52,7 @@ export default class Movies extends Component {
           title='Filmes'
           notFound={this.state.notFound}
           handleChange={this.handleChange}
-          list={this.state.movieFiltered}
+          list={this.state.moviesFiltered}
         />
       </>
     )

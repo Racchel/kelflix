@@ -23,7 +23,7 @@ export const ResourcesLayout = ({
                   list.map((item, index) => (
                      <li key={index}>
                         <img src={item.poster_path} alt={item.title} />
-                        {item.title}
+                        {item.title || item.name}
                      </li>
                   ))
             }

@@ -1,53 +1,61 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 
-const apiShows = axios.create({
-  baseURL:'https://api.themoviedb.org/3/tv/popular?api_key=2cd78b2f3233105703d15159229667a8'
-})
+/** layout */
+import { ResourcesLayout } from '../shared/layout'
+
+/** services */
+import { api } from '../shared/services'
+
+/** utils */
+import { filterResource } from '../shared/utils'
+
 
 export default class Shows extends Component {
 
   state = {
-    listShows: []
+    listShows: [],
+    showsFiltered: [],
+    notFound: false
   }
 
-  async componentDidMount() {
-    const response = await apiShows.get()
-    console.log(response)
+  componentDidMount() {
+    this.getShows()
+  }
 
-    const shows = response.data.results.map(
-      (item) => {
-        return {
-          ...item,
-          poster_path: `https://image.tmdb.org/t/p/w500/${item.poster_path}`
-        }
-      }
-    )
-
-    console.log(shows)
+  getShows = async () => {
+    const shows = await api.getShows()
 
     this.setState({
-      listShows: shows
+      listShows: shows,
+      showsFiltered: shows
     })
   }
 
-  render () {
+  handleChange = (e) => {
+    let { listShows } = this.state
+
+    const { notFound, resourceFiltered } = filterResource({
+      list: listShows,
+      value: e.target.value
+    })
+
+    this.setState({
+      showsFiltered: resourceFiltered,
+      notFound: notFound
+    })
+  }
+
+  render() {
     return (
       <>
-        <h1>Shows</h1>
-
-        <ul>
-        {
-          this.state.listShows.map((item, index) => (
-            <li key={index}>
-              <img src={item.poster_path} alt={item.name} />
-              {item.name}
-            </li>
-          ))
-        }
-        </ul>
+        <ResourcesLayout
+          title='Séries'
+          notFound={this.state.notFound}
+          handleChange={this.handleChange}
+          list={this.state.showsFiltered}
+        />
       </>
-   )
+    )
   }
 }
 
