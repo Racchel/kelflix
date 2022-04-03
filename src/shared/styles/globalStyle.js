@@ -14,4 +14,8 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 16px;
       color: inherit;
    }
+
+   h2 {
+      font-size: 16px;
+   }
 `
