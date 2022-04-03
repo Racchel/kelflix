@@ -1,5 +1,13 @@
 import React from 'react'
 
+/* react-router-dom */
+import {
+   BrowserRouter as Router,
+   Routes,
+   Route
+} from 'react-router-dom'
+
+/* pages */
 import {
    Home,
    About,
@@ -7,27 +15,16 @@ import {
    Shows
 } from '../pages'
 
-import {
-   BrowserRouter as Router,
-   Routes,
-   Route,
-   Link
-} from 'react-router-dom'
+/* components */
+import { Header } from '../shared/components'
 
+/* AppRoutes */
 export const AppRoutes = () => {
 
    return (
       <>
          <Router>
-            <nav>
-               <ul>
-                  <li><Link to='/'>Home</Link></li>
-                  <li><Link to='about'>Sobre</Link></li>
-                  <li><Link to='movies'>Filmes</Link></li>
-                  <li><Link to='shows'>Séries</Link></li>
-               </ul>
-            </nav>
-
+            <Header />
             <Routes>
                <Route path='/' element={<Home />} />
                <Route path='/about' element={<About />} />
