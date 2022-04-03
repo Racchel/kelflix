@@ -3,6 +3,9 @@ import React from 'react'
 /* styled-components */
 import styled from 'styled-components'
 
+/* styles */
+import { theme } from '../../styles'
+
 /* react-router-dom */
 import {
    Link
@@ -13,9 +16,9 @@ const Container = styled.header`
    height: 60px;
    display: flex;
    justify-content: center;
-   background-color: #333;
-   color: #fff;
-   `
+   background-color: ${theme.colors.header};
+   color: ${theme.colors.white};
+`
 
 const Nav = styled.header`
    width: 80%;
@@ -36,7 +39,7 @@ const ListItem = styled.li`
    justify-content: center;
    
    &:hover {
-      background-color: #D81F26;
+      background-color: ${theme.colors.main_color};
       font-weight: bold;
    }
 `
