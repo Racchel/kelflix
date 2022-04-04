@@ -4,12 +4,12 @@ import { Box } from '..'
 /* style*/
 import { Paragraph } from './style'
 
-export const Text = ({
-   text
+export const FlashingParagraph = ({
+   children
 }) => {
    return (
       <Box>
-         <Paragraph>{text}</Paragraph>
+         <Paragraph>{children}</Paragraph>
       </Box>
    )
 }
