@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import { theme } from '../../styles'
+import { theme, breakpoints as bkp } from '../../styles'
 
 const br_mc = '15px';   // border-radius_movie_card
 
@@ -19,23 +19,38 @@ const Box = styled.div`
    flex-direction: column;
    align-items: center;
    justify-content: space-around;
-   padding: 20px 0 10px 0;
+   padding: 20px;
    color: ${theme.colors.white};
 `
 
 const InputText = styled.input`
-   width: 50%;
-   height: 25px;
+   width: 80%;
+   height: 30px;
    padding: 10px;
+
+   @media ${bkp.phone_only} {
+      width: 100%;
+   }
 `
 
 const Grid = styled.section`
    width: 100%;
    display: grid;
    text-align: center;
-   padding: 10px;
-   grid-template-columns: repeat(5, 1fr);
+   padding: 20px;
    gap: 15px;
+
+   @media ${bkp.phone_only} {
+      grid-template-columns: repeat(1, 1fr);
+   }
+
+   @media ${bkp.tablet_portrait_up} {
+      grid-template-columns: repeat(3, 1fr);
+   }
+
+   @media ${bkp.tablet_landscape_up} {
+      grid-template-columns: repeat(5, 1fr);
+   }
 `
 
 const MovieCard = styled.div`
