@@ -7,32 +7,27 @@ import {
    Route
 } from 'react-router-dom'
 
-/* pages */
-import {
-   Home,
-   About,
-   Movies,
-   Shows
-} from '../pages'
-
 /* components */
 import { Header } from '../shared/components'
+
+/* components */
+import { routes } from './routes'
 
 /* AppRoutes */
 export const AppRoutes = () => {
 
    return (
-      <>
-         <Router>
-            <Header />
-            <Routes>
-               <Route path='/' element={<Home />} />
-               <Route path='/about' element={<About />} />
-               <Route path='/movies' element={<Movies />} />
-               <Route path='/shows' element={<Shows />} />
-            </Routes>
-         </Router>
-      </>
+      <Router>
+         <Header routes={routes} />
+         <Routes>
+            {routes.map(route => (
+               <Route
+                  path={route.path}
+                  element={route.element}
+               />
+            ))}
+         </Routes>
+      </Router>
    )
 }
 
