@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 import { theme } from '../../styles'
 
+const br_mc = '15px';   // border-radius_movie_card
+
 const Container = styled.main`
    display: flex;
    flex-direction: column;
@@ -22,11 +24,9 @@ const Box = styled.div`
 `
 
 const InputText = styled.input`
-   width: 45%;
-   height: 30px;
-   padding: 0 10px;
-   /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-   border: none; */
+   width: 50%;
+   height: 25px;
+   padding: 10px;
 `
 
 const Grid = styled.section`
@@ -34,23 +34,26 @@ const Grid = styled.section`
    display: grid;
    text-align: center;
    padding: 10px;
-   grid-template-columns: repeat(6, 1fr);
-   gap: 10px;
+   grid-template-columns: repeat(5, 1fr);
+   gap: 15px;
 `
 
 const MovieCard = styled.div`
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+   border-radius: ${br_mc};
+   box-shadow: rgba(0, 0, 0, 0.7) 0px 3px 8px;
 `
 
 const MovieImage = styled.img`
    display: flex;
    flex: 1;
    width: 100%;
+   border-radius: ${br_mc} ${br_mc} 0 0;
 `
 
-const MovieTitle = styled.h2`
+const MovieTitle = styled.button`
    width: 100%;
    height: 65px;
    background-color: ${theme.colors.secondary_color};
@@ -58,6 +61,8 @@ const MovieTitle = styled.h2`
    display: flex;
    justify-content: center;
    align-items: center;
+   border-radius:  0 0 ${br_mc} ${br_mc};
+   border: none;
 `
 
 export const ResourcesLayout = ({
