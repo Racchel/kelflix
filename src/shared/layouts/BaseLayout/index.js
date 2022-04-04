@@ -11,7 +11,6 @@ export const BaseLayout = ({
    return (
       <Container>
          <Title title={title} />
-
          {children}
       </Container>
    )

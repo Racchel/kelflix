@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
+import { theme } from '../styles/theme'
+
 export const GlobalStyle = createGlobalStyle`
    * {
       margin: 0;
@@ -8,6 +10,10 @@ export const GlobalStyle = createGlobalStyle`
       list-style: none;
       text-decoration: none;
       font-family: 'Courier New', Courier, monospace;
+   }
+
+   body {
+      background-color: ${theme.colors.background};
    }
 
    p, a {

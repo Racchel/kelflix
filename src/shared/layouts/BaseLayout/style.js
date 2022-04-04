@@ -6,6 +6,6 @@ import { theme } from '../../styles'
 
 export const Container = styled.main`
    display: flex;
-   flex-direction: column;
-   background-color: ${theme.colors.background};
+   flex-direction: column
 `
+

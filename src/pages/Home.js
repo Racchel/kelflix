@@ -1,7 +1,11 @@
 import React from 'react'
 
+import { BaseLayout } from '../shared/layouts'
+
 export default function Home() {
    return (
-      <h1> Home </h1>
+      <BaseLayout title='Home'>
+
+      </BaseLayout>
    )
 }
