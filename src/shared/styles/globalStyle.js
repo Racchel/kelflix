@@ -15,7 +15,24 @@ export const GlobalStyle = createGlobalStyle`
       color: inherit;
    }
 
-   h2 {
+   h2, button {
       font-size: 16px;
+      font-weight: bold;
+   }
+
+   button {
+      cursor: pointer;
+   }
+
+   button:hover{
+      background-color: rgba(0,0,0,0.1);
+   }
+
+   a {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
    }
 `
