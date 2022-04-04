@@ -7,13 +7,10 @@ import styled from 'styled-components'
 import { theme } from '../../styles'
 
 /* components */
-import { Title, Grid } from '../../components'
+import { InputSearch, Grid } from '../../components'
 
-const Container = styled.main`
-   display: flex;
-   flex-direction: column;
-   background-color: ${theme.colors.background};
-`
+/* layout */
+import { BaseLayout } from '../../layout'
 
 export const ResourcesLayout = ({
    title,
@@ -22,10 +19,9 @@ export const ResourcesLayout = ({
    list
 }) => {
    return (
-      <Container>
-         <Title title={title} onChange={handleChange} />
-
+      <BaseLayout title={title}>
+         <InputSearch title={title} onChange={handleChange} />
          <Grid notFound={notFound} list={list} />
-      </Container>
+      </BaseLayout>
    )
 }
