@@ -1,5 +1,6 @@
 export * from './Header'
+export * from './Box'
 export * from './MovieCard'
 export * from './Title'
 export * from './Grid'
-export * from './Box'
+export * from './Search'
