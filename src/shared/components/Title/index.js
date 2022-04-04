@@ -1,14 +1,15 @@
-import React from 'react'
-
 /* components */
 import { Box } from '..'
+
+/* style*/
+import { MainTitle } from './style'
 
 export const Title = ({
    title
 }) => {
    return (
       <Box>
-         <h1>{title}</h1>
+         <MainTitle>{title}</MainTitle>
       </Box>
    )
 }

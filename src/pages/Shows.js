@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-/** layout */
-import { ResourcesLayout } from '../shared/layout'
+/** layouts */
+import { ResourcesLayout } from '../shared/layouts'
 
 /** services */
 import { api } from '../shared/services'
